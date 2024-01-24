@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(#004510, #00270a);
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 20px;
+        }
+
+        .one{
+            grid-row: 1/3;
+        }
+       
+
+        .six {
+            grid-column: 3/5;
+        }
+
+        .seven{
+            grid-column: 1/5;
+        }
+
+
+        #wrapper div {
+            color: #7c8c84;
+            background-color: #002008;
+            border: 1px dotted #7c8c84;
+            border-radius: 10px;
+        } 
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="one">Free Ticket to the Online</div>
+        <div class="two">75% off Griddy Icons</div>
+        <div class="three">50% off the first year</div>
+        <div class="four">50% off 10x Designers Pro</div>
+        <div class="five">3 Months off Framer Auth</div>
+        <div class="six">50% off Tower Pro</div>
+        <div class="seven">Add New</div>
+    </div>
+</body>
+
+</html>

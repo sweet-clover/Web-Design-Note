@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav {
+            height: 5vh;
+            background-color: #1BC1A1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        section {
+            height: 70vh;
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+        }
+
+        section > :first-child{
+            background-color: #FC6057;
+        }
+
+        section > :last-child{
+            background-color:#34DABA;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>Home</div>
+        <div>About</div>
+        <div>Products</div>
+        <div>Services</div>
+        <div>Contact Us</div>
+    </nav>
+    <section>
+        <div>Sidebar</div>
+        <div>Context</div>
+    </section>
+    <footer>
+        Footer
+    </footer>
+</body>
+
+</html>

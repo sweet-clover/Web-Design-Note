@@ -1,0 +1,169 @@
+CSS ( Grid - Part 2 )
+
+Grid/Flexbox ဘာလို့သုံးတွေ ဘာလို့သုံးလဲဆိုတာ လေ့လာခဲ့ပြီ
+
+Grid ရဲ့ အားသာချက်က ဘာလဲဆိုတာ ဆက်ကြည့်ကြမယ်
+ပုံမှာ ကြည့်ကြည့်လိုက် Rows က နှစ်ခု columns က  လေးခုပါတယ်
+ပထမဆုံးတစ်ခုမှာဆိုရင် သူက Rows နှစ်ခုကိုပေါင်းပြီး column အပြည့်ယူလိုက်တယ်
+
+အဲ့တာကို CSS နဲ့ရေးမယ်ဆိုရင် table သုံးလို့လည်းရတယ်
+အရင်က inline နဲ့ ရေးခဲ့တော့ အခုတစ်ခါ table သုံးကြမယ်
+
+Table မှာ column ပေါင်းချင်ရင် colspan,
+Row ပေါင်းချင်ရင် rowspan 
+cell နှစ်ခုပေါင်းချင်ရင် 2, သုံးခုပေါင်းချင်ရင် 3
+
+UI လှချင်ရင် box-shadow တွေ font တွေ icon တွေ ထပ်ထည့်လိုက်နော်
+
+************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        table{
+            background: linear-gradient(#004510, #00270a);
+            border-spacing: 20px;
+        }
+
+        td{
+            width: 180px;
+            height: 200px;
+            text-align: center;
+            background-color: #002008;
+            color: #7c8c84;
+            border: 1px dotted #7c8c84;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td rowspan="2">Free Ticket to the Online</td>
+            <td>75% off Griddy Icons</td>
+            <td>50% off the first year</td>
+            <td>50% off 10x Designers Pro</td>
+        </tr>
+        <tr>
+            <td>3 Months off Framer Auth</td>
+            <td colspan="2">50% off Tower Pro</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+************
+
+အသစ်ထပ်ထည့်တာ ပြင်တာမျိုးဆို column/ row တွေ အကုန်ပြန်ညှိရတယ်
+နောက်ပိုင်း table တွေအစား Grid တွေ/Flexbox တွေသုံးလားကြတယ်
+
+အခုပထမပုံမှာဆိုရင် Row, Column တွေ ပေါင်းကစားထားတယ် 
+အဲ့တာကို two-dimensional layout လို့ခေါ်တယ် 
+two-dimensional layout ရေးချင်ရင် Grid သုံးရမယ်
+
+one-dimensional layout ဆိုရင် flex ကို သုံးရမယ်
+သူက direction တစ်ခုတည်းရှိတာ
+Example အနေနဲ့ဆို အရင် UI မှာပါတဲ့ Navigation လိုဟာမျိုးပေါ့
+ဒုတိယ ပုံကို ကြည့်ရင် ရှင်းသွားလိမ့်မယ် two-dimensional layout နဲ့ 
+one-dimensional layout ဘာကွာလဲဆိုတာ
+
+အဲ့ပုံလေးကိုပဲ Grid နဲ့ စမ်းကြည့်မယ်
+
+ပုံလေးကို ပြန်ကြည့်ကြည့် (Point မှတ်ပေးထားတယ်)
+1,2,3,4,5 အဝိုင်းလေးက Column
+1,2 လေးထောင့်လေးက Row
+
+Row ပေါင်းမယ်ဆိုရင် grid-row
+Column ပေါင်းမယ်ဆိုရင် grid-column
+
+ရှေ့ဆုံးက Row ကို ပေါင်းရမယ်
+ဘယ်အထိလဲဆိုရင် 1 to 3
+.one{
+    grid-row: 1/3;
+}
+
+Row 2 က နောက်ဆုံးက Column နှစ်ခုစာပေါင်းရမယ်
+ဘယ်က စမလဲဆိုရင် 3 to 5
+
+.six {
+    grid-column: 3/5;
+}
+
+************
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(#004510, #00270a);
+            background-repeat: no-repeat;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        #wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 20px;
+        }
+
+        .one{
+            grid-row: 1/3;
+        }
+       
+
+        .six {
+            grid-column: 3/5;
+        }
+
+        #wrapper div {
+            color: #7c8c84;
+            background-color: #002008;
+            border: 1px dotted #7c8c84;
+            border-radius: 10px;
+        } 
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="one">Free Ticket to the Online</div>
+        <div class="two">75% off Griddy Icons</div>
+        <div class="three">50% off the first year</div>
+        <div class="four">50% off 10x Designers Pro</div>
+        <div class="five">3 Months off Framer Auth</div>
+        <div class="six">50% off Tower Pro</div>
+    </div>
+</body>
+
+</html>
+
+************
+
+Code က table ထက်စာရင် တော်တော်ရှင်းသွားပါတယ်
+အဲ့မှာ နောက်ထပ် div တစ်ခုထပ်ထည့်ချင်တယ်ဆိုရင် <div class="seven">Add New</div>
+အဲ့လို ထပ်ထည့်လိုက်ရင် ရပါပြီ
+
+အဲ့တာကို အစအဆုံး အပြည့်ထပ်လိုချင်တယ်ဆိုရင် column 1 to 5
+.seven{
+    grid-column: 1/5;
+} ဆိုပြီးထပ်ထည့်လိုက်ရင် ရပါတယ်
+
+UI Reference: https://design.gifts/?ref=onepagelove
+Image Reference: https://cecibenitezca.medium.com/flexbox-vs-css-grid-3f4ffabbb8e3

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        body{
+            width: 1140px;
+            margin: 0 auto;
+            background-color: #cbcbcb;
+        }
+
+        header {
+            height: 20vh;
+            background-color: #FDA061;
+        }
+
+        nav {
+            height: 5vh;
+            background-color: #1BC1A1;
+        }
+
+        nav {
+            font-size: 0;
+        }
+
+        nav div {
+            display: inline-block;
+            width: 20%;
+            font-size: 16px;
+        }
+
+        footer {
+            height: 5vh;
+            background-color: #2C3043;
+        }
+
+        section{
+            height: 70vh;
+            font-size: 0;
+        }
+
+        section div{
+            display: inline-block;
+            font-size: 16px;
+            height: inherit;
+        }
+
+        section > :first-child{
+            width: 30%;
+            background-color: #FC6057;
+        }
+
+        section > :last-child{
+            width: 70%;
+            background-color:#34DABA;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <header>Header</header>
+    <nav>
+        <div>Home</div>
+        <div>About</div>
+        <div>Products</div>
+        <div>Services</div>
+        <div>Contact Us</div>
+    </nav>
+    <section>
+        <div>Sidebar</div>
+        <div>Context</div>
+    </section>
+    <footer>
+        Footer
+    </footer>
+</body>
+
+</html>

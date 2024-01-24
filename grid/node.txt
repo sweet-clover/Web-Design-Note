@@ -1,0 +1,248 @@
+CSS ( Grid - Part 1 )
+
+HTML Elements နှစ်မျိုးရှိတယ်
+
+1. Inline Element
+inline element ဆိုတာက ကပ်ပြီးပေါ်တာ
+သူ့မှာ width တွေ/ height တွေမရှိဘူး
+e.g HTML CSS
+
+Inline Elements တွေထဲက span, a, button, input,
+label, select, textarea, b, i, img, br, small, em
+အဲ့တာတွေက အသုံးများပါတယ်
+
+2. Block Element
+block element ဆိုတာက width က မသတ်မှတ်ထားရင်
+အပြည့်ယူသွားတာ သူ့နောက်မှာ ကပ်ပြီးလိုက်တာမျိုးမရှိဘူး
+e.g 
+    HTML 
+    CSS
+တစ်ကြောင်းစီဖြစ်သွားမယ်
+
+Block Elements တွေထဲက h1 to h6, p, div, 
+ul, ol, li, header, section, footer,
+table, hr, form, fieldset, figure, figcaption 
+အဲ့တာတွေက အသုံးများတယ်
+
+
+ကပ်ပြီးလည်းပေါ်ချင်တယ် / width တွေ height တွေလည်းပေးချင်တယ်
+ဆိုရင် css style ဖြစ်တဲ့ display : inline-block ကို သုံးလို့ရတယ်
+
+****************
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Elements</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+            margin-bottom: 3px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Inline Element</h1>
+        <span>HTML</span>
+        <span>CSS</span>
+    </section>
+
+    <section>
+        <h1>Block Element</h1>
+        <div>HTML</div>
+        <div>CSS</div>
+    </section>
+
+    <section>
+        <h1>Inline-block Element</h1>
+        <div style="display: inline-block;">HTML</div>
+        <div style="display: inline-block;">CSS</div>
+    </section>
+</body>
+</html>
+
+****************
+
+ပထမပုံ ကြည့်ပြီး elements တွေကို နားလည် သွားရင် elements တွေကို သုံးပြီး
+website layout ချတာထပ်ကြည့်မယ်
+
+Note: inline block ကြားထဲမှာ space ပါနေတယ် အဲ့ space ကို မလိုချင်ဘူးဆိုရင်
+Ref: https://www.tutorialspoint.com/how-to-remove-the-space-between-inline-inline-block-elements-in-html
+အဲ့မှာ သွားဖတ်ကြည့်လို့ရတယ်
+
+အရင်ကတော့ Layout ချရင် table ကိုသုံးပြီးလည်း ချကြတယ်
+အခု table မသုံးဘူး div ကိုသုံးမယ်
+
+Header (100%)
+Menu (
+    Home (20%) | About (20%) | Products (20%)| 
+    Services (20%) | Contact Us (20%)
+) 100 % ရှိမယ် item 5 ခု တစ်ခု 20%
+SideBar (30% ) | Context (70%)
+Footer (100%)
+
+****************
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        body{
+            width: 1140px;
+            margin: 0 auto;
+            background-color: #cbcbcb;
+        }
+
+        header {
+            height: 20vh;
+            background-color: #FDA061;
+        }
+
+        nav {
+            height: 5vh;
+            background-color: #1BC1A1;
+        }
+
+        nav {
+            font-size: 0;
+        }
+
+        nav div {
+            display: inline-block;
+            width: 20%;
+            font-size: 16px;
+        }
+
+        footer {
+            height: 5vh;
+            background-color: #2C3043;
+        }
+
+        section{
+            height: 70vh;
+            font-size: 0;
+        }
+
+        section div{
+            display: inline-block;
+            font-size: 16px;
+            height: inherit;
+        }
+
+        section > :first-child{
+            width: 30%;
+            background-color: #FC6057;
+        }
+
+        section > :last-child{
+            width: 70%;
+            background-color:#34DABA;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <header>Header</header>
+    <nav>
+        <div>Home</div>
+        <div>About</div>
+        <div>Products</div>
+        <div>Services</div>
+        <div>Contact Us</div>
+    </nav>
+    <section>
+        <div>Sidebar</div>
+        <div>Context</div>
+    </section>
+    <footer>
+        Footer
+    </footer>
+</body>
+
+</html>
+
+****************
+
+
+အဲ့လိုမျိုး Div တွေကို width တွေလိုက်ထည့်ပေး ရတာက
+အလုပ်ရှုတ်တယ် column ထပ်တိုးတာပဲဖြစ်ဖြစ် လျော့တာပဲဖြစ်ဖြစ်
+ပြန်လိုက်ပြင်နေရတာက အလုပ်ပိုတယ်
+
+နောက်ပိုင်းမှာ CSS Grid, Flex box
+တွေ အသုံးများလာတယ်
+
+အပေါ်က ရေးထားတဲ့ example က nav ကို grid နဲ့ပြင်ရေးမယ်ဆိုရင်
+
+****************
+
+<style>
+    nav {
+        height: 5vh;
+        background-color: #1BC1A1;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    section {
+        height: 70vh;
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+    }
+
+    section > :first-child{
+        background-color: #FC6057;
+    }
+
+    section > :last-child{
+        background-color:#34DABA;
+    }
+
+</style>
+
+****************
+
+တော်တော်လွယ်သွားတယ် 
+
+navigation မှာဆိုရင် 5ပိုင်း ပါရမယ် အကုန်လုံးက ရွယ်တူဆိုတော့
+1fr 1fr 1fr 1fr 1fr အဲ့လိုရေးရမယ် အကုန်လုံးက ထပ်နေတော့ 
+repeat(5, 1fr) အဲ့လိုရေးလို့ရတယ် => repeat က function 
+repeat(number-of-repetition, track-list-to-repeat)
+number-of-repetition - ဘယ်နှစ်ကြိမ်လဲ (5)
+track-list-to-repeat - ဘာကို repeat လုပ်မှာလဲ (1fr)
+
+Fr ( fractional unit ) 
+1fr - 1 part of available space 
+
+Example အနေနဲ့ဆိုရင်
+Navigation => div (100%) ကို 5 ပိုင်းပိုင်းထားရင် 
+1 + 1 + 1 + 1 = 5 (repeat(5, 1fr))
+
+Section => div (100%) ကို 2 ပိုင်းပိုင်းထားရင်
+SideBar (1) + Context(4) = 5 (1fr 4fr)
+SideBar (2) + Context(3) = 5 (2fr 3fr)
+
+ဒီလောက်ဆို Gird/Flexbox ကို ဘာလိုသုံးတာလဲဆိုတာ
+မြင်မယ်လို့ထင်တာပါပဲ :p
+
+🍀🍀🍀🍀
